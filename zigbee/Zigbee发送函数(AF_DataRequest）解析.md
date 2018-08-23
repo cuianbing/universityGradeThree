@@ -50,10 +50,11 @@ void MySendMessage(void)
 					   //使用设备发现路由功能
                        AF_DISCV_ROUTE,
 					   //设置路由域
-                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )){
-	
-	}else{
-	
-	}
+                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ))
+		{
+	       //发送成功后执行的代码
+	    }else{
+	        //发送失败后执行的代码
+	   }
 }
 ```
