@@ -5,8 +5,9 @@ grammar_cjkRuby: true
 ---
 ## Zigbee发送函数(AF_DataRequest）解析 
 
+### 发送函数原型（定义在AF.c中）
 ``` cpp?linenums
-AF_DataRequest( 
+afStatus_t AF_DataRequest( 
 afAddrType_t    *dstAddr,   //目的地址结构体变量（含端点号）
 endPointDesc_t  *srcEP,     //指向目的端点的端点描述符指针
 unit16  cID,       //发送端点的输出簇ID      
