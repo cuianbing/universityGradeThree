@@ -88,6 +88,12 @@ typedef enum
 } afAddrMode_t;
 ```
 1. 间接寻址
+
+
 2. 单点寻址
+
+
 3. 组寻址
+
+
 4. 广播寻址
