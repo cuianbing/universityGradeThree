@@ -31,16 +31,25 @@ unit8 radius,//传送跳数，通常设置为AF_DEFAULT_RADIUS
 #### 发送消息示例
 
 ``` cpp?linenums
-vvoid MySendMessage(void)
+void MySendMessage(void)
 {
     char messageDate[] = "Hello Word!!"
-	if(AF_DataRequest( &SampleApp_P2P_DstAddr, 
+	if(AF_DataRequest(
+	                  //发送的目的地址
+	                  &SampleApp_P2P_DstAddr, 
+					  //发送的端点描述符
 	                   &SampleApp_epDesc,
+					   //簇ID号，让接收方知道该消息的类型。自己定义
                        SAMPLEAPP_P2P_CLUSTERID,
-                       4,
-                       str,
+					   //数据长度
+                       13,
+					   //指向数据的指针
+                       messageDate,
+					   //发送数据的ID序列号
                        &SampleApp_TransID,
+					   //使用设备发现路由功能
                        AF_DISCV_ROUTE,
+					   //设置路由域
                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )){
 	
 	}else{
