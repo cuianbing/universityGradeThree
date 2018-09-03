@@ -121,7 +121,8 @@ iptables: Unloading modules:                [  OK  ]
 [root@master ~]# ping slave1
 ```
 ![成功显示结果][3]
-按ctrl+c结束命令。同样测试
+
+按ctrl+c结束命令。同样测试slave2机器
 ``` shell
 [root@master ~]# ping slave2
 ```
