@@ -29,7 +29,7 @@ grammar_cjkRuby: true
 在这里IP地址采用虚拟的。
 IP地址与及其对应
 
-|   IP地址  |   机器名  |   功能  |   备注  |
+|   IP地址  |   主机名  |   功能  |   备注  |
 | --- | --- | --- | --- |
 |   192.168.1.101  |  master   |  NameNode   |     |
 |   192.168.1.102  |  slave1   |   DataNode     |     |
