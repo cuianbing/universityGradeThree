@@ -25,7 +25,7 @@ grammar_cjkRuby: true
 有些同学不具有多台阿里云的机器，也可以在VM上安装虚拟机，进行操作，安装虚拟机的教程请参考......
 
 # 网络环境配置
-## 
+## 查看机器IP地址设计网络结构
 1. 查看阿里云的IP地址，用的是公网地址
 2. ![阿里云界面][1]
 在这里IP地址采用虚拟的。
@@ -103,8 +103,35 @@ iptables: Unloading modules:                [  OK  ]
 ``` shell
 [root@master ~]# chkconfig iptables off
 ```
-# 配置多台机器的SSH无密码登录
+## 配置hosts文件
+``` shell
+[root@master ~]# vim /etc/hosts
+```
+添加以下内容
+> 192.168.1.101   master
+> 192.168.1.102   slave1
+> 192.168.1.103   slave2
 
+# 配置多台机器的SSH无密码登录
+## 配置ssh，实现无密码登陆
+无密码登陆，效果也就是在master上，通过 ssh slave1 或 ssh slave2  就可以登陆到对方计算机上。而且不用输入密码。
+三台虚拟机上，使用   ssh-keygen -t rsa    一路按回车就行了。
+刚才都作甚了呢？主要是设置ssh的密钥和密钥的存放路径。 路径为~/.ssh下。
+打开~/.ssh 下面有三个文件
+authorized_keys，已认证的keys
+id_rsa，私钥
+id_rsa.pub，公钥   三个文件。
+下面就是关键的地方了，（我们要做ssh认证。进行下面操作前，可以先搜关于认证和加密区别以及各自的过程。）
+①在master上将公钥放到authorized_keys里。命令：sudo cat id_rsa.pub >> authorized_keys
+ ②将master上的authorized_keys放到其他linux的~/.ssh目录下。
+ ``` shell
+[root@master ~]# sudo scp authorized_keys hadoop@10.10.11.192:~/.ssh
+```
+命令格式为 sudo scp authorized_keys 远程主机用户名@远程主机名或ip:存放路径。
+    ③修改authorized_keys权限，
+	命令：chmod 644 authorized_keys
+    ④测试是否成功
+       ssh slave1 输入用户名密码，然后退出，再次ssh host2不用密码，直接进入系统。这就表示成功了
 
 
 # 安装并配置Java环境
