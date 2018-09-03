@@ -43,10 +43,11 @@ IP地址与及其对应
 spark@master:~$ hostname
 master
 - 修改主机名：
+``` shell
 spark@master:~$ sudo hostname hadoop
 spark@master:~$ hostname
 hadoop
- 
+ ```
 PS:以上的修改只是临时修改，重启后就恢复原样了。
 
 2. 永久修改主机名
