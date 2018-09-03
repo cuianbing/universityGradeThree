@@ -185,5 +185,5 @@ chmod 644 ~/.ssh/authorized_keys
 
 
   [1]: ./images/1535935139696.jpg
-  [2]: ./images/1535937042269.jpg
+  [2]: ./images/1535937042269.png
   [3]: ./images/1535939091331.jpg
