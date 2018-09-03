@@ -34,16 +34,10 @@ IP地址与及其对应
 |   192.168.1.102  |  slave1   |   DataNode     |     |
 |   192.168.1.103  |  slave2   |   DataNode     |     |
 
-``` mermaid!
-graph TD;
-A-->B;
-A-->C;
-B-->D;
-C-->D;
-```
-
+![网络架构图][2]
 
 # 配置多台机器的SSH无密码登录
 
 
   [1]: ./images/1535935139696.jpg
+  [2]: ./images/1535937042269.jpg
