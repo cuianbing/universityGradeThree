@@ -15,8 +15,10 @@ grammar_cjkRuby: true
 2. 网络环境配置
 3. 配置SSH无密登录
 4.  安装并配置Java环境
-5.  配置SSH无密登录
-6. 
+5.  下载安装Hadoop
+6. 配置Hadoop
+7. 启动Hadoop并测试
+8. 单词统计示例
 
 # 安装操作系统
 在阿里云上安装操作是一个很简便的操作。操作系统的选择Centos6.8 x64（64位）。
@@ -40,12 +42,14 @@ IP地址与及其对应
 1. 临时修改主机名
 
 - 显示主机名：
-spark@master:~$ hostname
+``` shell
+[root@localhost ~]# hostname
 master
+```
 - 修改主机名：
 ``` shell
-spark@master:~$ sudo hostname hadoop
-spark@master:~$ hostname
+[root@localhost ~]# sudo hostname hadoop
+[root@localhost ~]# hostname
 hadoop
  ```
 PS:以上的修改只是临时修改，重启后就恢复原样了。
@@ -72,15 +76,62 @@ HOSTNAME=master
 使用命令后重新打开终端（控制台）
 想立即生效，可以同时采用第一种方法。
 还有一个修改是：
-/etc/hosts
+/etc/hosts文件
 在下面这一行最后面添加你修改后的主机名
+``` shell
+[root@localhost ~]#  vim /etc/hosts
+```
 > 127.0.0.1   localhost.localdomain
 > 修改为 127.0.0.1   localhost.localdomain  master
 
 修改主机名要在所有的机器上进行
 
-
+- 关闭防火墙
+学习环境可以直接把防火墙关闭掉。
+(1) 用root用户登录后，执行查看防火墙状态
+```shell
+[root@master ~]# service iptables status
+```
+(2) 用[root@master~]# service iptables stop关闭防火墙，这个是临时关闭防火墙。
+``` shell
+[root@master ~]# service iptables stop
+iptables: Setting chains to policy ACCEPT: filter  [  OK  ]
+iptables: Flushing firewall rules:            [  OK  ]
+iptables: Unloading modules:                [  OK  ]
+```
+(3) 如果要永久关闭防火墙用。
+``` shell
+[root@master ~]# chkconfig iptables off
+```
 # 配置多台机器的SSH无密码登录
+
+
+
+# 安装并配置Java环境
+
+
+
+
+# 下载安装Hadoop
+
+
+
+
+
+# 配置Hadoop环境
+
+
+
+
+
+# 启动Hadoop并测试
+
+
+
+
+# 单词统计示例
+
+
 
 
   [1]: ./images/1535935139696.jpg
