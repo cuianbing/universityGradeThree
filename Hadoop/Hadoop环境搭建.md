@@ -3,7 +3,7 @@ title: Hadoop环境搭建
 tags: 2018-9-3 Hadoop
 grammar_cjkRuby: true
 ---
-
+# Hadoop环境搭建手册
 # 环境概述
 - 阿里云
 - 操作系统 Centos  6.8
@@ -36,7 +36,7 @@ IP地址与及其对应
 |   192.168.1.101  |  master   |  NameNode   |     |
 |   192.168.1.102  |  slave1   |   DataNode     |     |
 |   192.168.1.103  |  slave2   |   DataNode     |     |
-
+网络拓扑图：
 ![网络架构图][2]
 ## 配置主机名
 1. 临时修改主机名
@@ -185,5 +185,5 @@ chmod 644 ~/.ssh/authorized_keys
 
 
   [1]: ./images/1535935139696.jpg
-  [2]: ./images/1535937042269.png
+  [2]: ./images/1535937042269.jpg
   [3]: ./images/1535939091331.jpg
