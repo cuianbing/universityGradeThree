@@ -52,16 +52,24 @@ PS:以上的修改只是临时修改，重启后就恢复原样了。
 
 2. 永久修改主机名
 redhat/centos上永久修改
+``` shell
 [root@localhost ~]# cat /etc/sysconfig/network
 NETWORKING=yes
 HOSTNAME=localhost.localdomain
 GATEWAY=192.168.10.1
+```
 修改network的HOSTNAME项。点前面是主机名，点后面是域名。没有点就是主机名。
-[root@localhost ~]# vi /etc/sysconfig/network
+``` shell
+[root@localhost ~]# vim /etc/sysconfig/network
 NETWORKING=yes
 NETWORKING_IPV6=no
 HOSTNAME=master
-这个是永久修改，重启后生效。目前不知道怎么立即生效。
+```
+这个是永久修改，重启后生效。或者使用命令
+``` shell
+ [root@localhost ~]#  source /etc/sysconfig/network
+```
+使用命令后重新打开终端（控制台）
 想立即生效，可以同时采用第一种方法。
 还有一个修改是：
 /etc/hosts
