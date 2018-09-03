@@ -9,7 +9,7 @@ grammar_cjkRuby: true
 - 操作系统 Centos  6.8
 - Java版本  jdk  1.8
 - SSH
-
+- 软件默认都放在根目录下的software文件夹下（需要自己新建）
 # 目录
 1. 安装操作系统
 2. 网络环境配置
@@ -155,14 +155,39 @@ id_rsa.pub，公钥   三个文件。
 
 ③修改authorized_keys
 ```shell
-chmod 644 ~/.ssh/authorized_keys
+[root@master ~]# chmod 644 ~/.ssh/authorized_keys
 ```
 ④测试是否成功
        ssh slave1 输入用户名密码，然后退出，再次ssh slave2不用密码，直接进入系统。这就表示成功了
 
 # 安装并配置Java环境
-
-
+## 检查是否已经安装其他jdk
+``` shell
+[root@master ~]# rpm -qa | grep java
+```
+![已经存在][4]
+- 卸载
+```shell
+[root@master ~]#  rpm -ev java-1.7.0-openjdk-1.7.0.141-2.6.10.1.el6_9.x86_64  #一个一个卸载直到一个不剩
+```
+- 判断是否卸载成功
+``` shell
+[root@master ~]#  java -version   #查看安装的jdk版本
+```
+![已经卸载][5]
+## 新建软件安装目录下载安装文件
+``` shell
+[root@master ~]# mkdir /software    #新建文件夹
+[root@master ~]# cd /software      #进入到software文件夹
+[root@master software]# 
+[root@master software]# 
+[root@master ~]# 
+[root@master ~]#
+```
+## 解压文件并重命名
+```shell
+```
+## 配置环境变量并验证
 
 
 # 下载安装Hadoop
@@ -188,3 +213,5 @@ chmod 644 ~/.ssh/authorized_keys
   [1]: ./images/1535935139696.jpg
   [2]: ./images/1535937042269.png
   [3]: ./images/1535939091331.jpg
+  [4]: ./images/1535940255208.jpg
+  [5]: ./images/1535940424011.jpg
