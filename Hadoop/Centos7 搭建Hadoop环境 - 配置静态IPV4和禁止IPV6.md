@@ -28,17 +28,42 @@ yum install net-tools
 ```
 ## 修改IP地址
 
-进入到网卡挂载目录下,并且查看网卡信息
+1. 进入到网卡挂载目录下,并且查看网卡信息
 ``` shell?linenums
 cd /etc/sysconfig/network-scripts/
 ls
 ```
 ![网卡挂载目录][3]
+
 这里需要使用的配置文件是:ifcfg-enp2s5,每个人的可能不一样,切换root权限,通过vim进到里面,可以看到里面的内容:
+
 ![网卡配置文件][4]
+
+2. 这里说一下需要修改的位置:
+> #修改
+BOOTPROTO=static #这里讲dhcp换成ststic
+ONBOOT=yes #将no换成yes
+#新增
+IPADDR=192.168.1.102 #静态IP
+GATEWAY=192.168.1.1 #默认网关
+NETMASK=255.255.255.0 #子网掩码
+
+保存退出后,重启网络服务:
+``` shell?linenums
+service network restart
+Restarting network (via systemctl):                        [  确定  ]
+```
+查看当前ip:
+
+``` shell?linenums
+ip addr
+```
+
+![查看ip地址][5]
 
 
   [1]: ./images/1536225877291.jpg
   [2]: ./images/1536225896680.jpg
   [3]: ./images/1536226114016.jpg
   [4]: ./images/1536226191065.jpg
+  [5]: ./images/1536226989216.jpg
