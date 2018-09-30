@@ -11,7 +11,7 @@ grammar_cjkRuby: true
 已建立的系统的硬盘分区都被挂载到某一个目录下，用户通过操作目录来实现硬盘的读写。
 # Linux文件系统与Windows的区别
 1. Linux是一个树形目录结构，而Windows是多个树。
-2. Linux使用 **/** 来作为目录分隔符，而Windows使用 **\\** 来作为分隔符。
+2. Linux使用 **/** 来作为目录分隔符，而Windows使用 **\\** 来作为分隔符。（虽然在windows上使用/来寻找路径也可以，但是windows将/主动转换为了\\）
 
 # Linux文件系统
 
