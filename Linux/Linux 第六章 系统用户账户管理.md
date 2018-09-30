@@ -21,11 +21,11 @@ grammar_cjkRuby: true
 >
 > 1. 添加用户  
 > useradd
-> 2.  删除用户 
+> 2.  删除用户   
 > userdel
-> 3.  管理用户
+> 3.  管理用户  
 > usermod
-> 4.  查看用户
+> 4.  查看用户  
 > id
-> 5.  切换用户
+> 5.  切换用户  
 > su
